@@ -1,0 +1,26 @@
+{
+  "name": "nibedevwebsite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5175",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4175",
+    "test": "node --test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "lottie-web": "^5.13.0",
+    "vue": "3.5.41"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.2.4",
+    "prettier": "^3.6.2",
+    "vite": "5.4.21"
+  }
+}

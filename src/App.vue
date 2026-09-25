@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import CatScene from './components/CatScene.vue'
+import ContactComposer from './components/ContactComposer.vue'
 import MeteorOverlay from './components/MeteorOverlay.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import Icon from './components/Icon.vue'
@@ -23,16 +24,6 @@ const menuButton = ref(null)
 const menuPanel = ref(null)
 const activeSection = ref('inicio')
 const ids = ['proyectos', 'sobre-mi', 'contacto']
-const draftSubject = ref('')
-const draftMessage = ref('')
-const contactHref = computed(() => {
-  const fields = []
-  if (draftSubject.value.trim())
-    fields.push(`subject=${encodeURIComponent(draftSubject.value.trim())}`)
-  if (draftMessage.value.trim())
-    fields.push(`body=${encodeURIComponent(draftMessage.value.trim().replace(/\r?\n/g, '\r\n'))}`)
-  return `mailto:${links.email}${fields.length ? `?${fields.join('&')}` : ''}`
-})
 const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 const reduced = ref(motionQuery.matches)
 const playing = computed(() => !reduced.value)
@@ -337,53 +328,7 @@ onBeforeUnmount(() => {
             </h2>
             <p class="muted">{{ t.contactBody }}</p>
           </div>
-          <div class="contact-composer">
-            <CatScene
-              class="composer-cat"
-              variant="night"
-              :photo="false"
-              :playing="playing"
-              :label="
-                locale === 'es'
-                  ? 'Nibe está sentado sobre el borde del borrador de correo.'
-                  : 'Nibe sits on the edge of the email draft.'
-              "
-            />
-            <div class="composer-bar">
-              <span class="composer-dots" aria-hidden="true"><i></i><i></i><i></i></span
-              ><span>{{ t.newMessage }}</span>
-            </div>
-            <div class="composer-main">
-              <div class="composer-row">
-                <span>{{ t.recipient }}</span
-                ><a :href="`mailto:${links.email}`">{{ links.email }}</a>
-              </div>
-              <label class="composer-row" for="contact-subject"
-                ><span>{{ t.subjectLabel }}</span
-                ><input
-                  id="contact-subject"
-                  v-model="draftSubject"
-                  type="text"
-                  maxlength="160"
-                  :placeholder="t.subjectPlaceholder"
-                  autocomplete="off"
-              /></label>
-              <label class="sr-only" for="contact-message">{{ t.messageLabel }}</label>
-              <textarea
-                id="contact-message"
-                v-model="draftMessage"
-                maxlength="2000"
-                rows="5"
-                :placeholder="t.messagePlaceholder"
-              ></textarea>
-              <div class="composer-actions">
-                <a class="button button-primary" :href="contactHref"
-                  >{{ t.openMail }}<Icon name="diagonal" :size="17"
-                /></a>
-                <p>{{ t.mailHint }}</p>
-              </div>
-            </div>
-          </div>
+          <ContactComposer :locale="locale" :t="t" :playing="playing" />
           <div class="contact-socials">
             <p class="eyebrow">{{ t.socialPrompt }}</p>
             <div class="contact-social-links">

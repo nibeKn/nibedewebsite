@@ -34,4 +34,4 @@ GitHub Actions runs the formatting check, tests, and production build on pushes 
 
 ## Content and assets
 
-Project descriptions are based on the public repositories for [Nivel Retro](https://github.com/nibeKn/Tienda-Nivel-Retro) and [Ñamster Café](https://github.com/nibeKn/Namster-Cafe). Both are personal showcase projects. Their individual descriptions clarify which commerce, booking, or form interactions are demonstrations.
+Project descriptions are based on the public repositories for [Nivel Retro](https://github.com/nibedev/Tienda-Nivel-Retro) and [Ñamster Café](https://github.com/nibedev/Namster-Cafe). Both are personal showcase projects. Their individual descriptions clarify which commerce, booking, or form interactions are demonstrations.

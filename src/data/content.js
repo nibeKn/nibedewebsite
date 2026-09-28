@@ -1,8 +1,8 @@
 export const media = (file) => `${import.meta.env.BASE_URL}media/${file}`
 
 export const links = {
-  github: 'https://github.com/nibeKn',
-  linkedin: 'https://www.linkedin.com/in/joaquinleppe/',
+  github: 'https://github.com/nibedev',
+  linkedin: 'https://www.linkedin.com/in/nibedev/',
   email: 'contact@nibe.dev',
 }
 
@@ -189,7 +189,7 @@ export const projects = [
     image: 'nivel-retro.png',
     video: 'nivel-retro.mp4',
     demo: 'https://nivel-retro.nibe.dev/',
-    code: 'https://github.com/nibeKn/Tienda-Nivel-Retro',
+    code: 'https://github.com/nibedev/Tienda-Nivel-Retro',
     tags: ['Vue 3', 'Vue Router', 'CSS'],
     es: {
       category: 'EXPERIENCIA INTERACTIVA',
@@ -250,7 +250,7 @@ export const projects = [
     image: 'namster-cafe.jpg',
     video: 'namster-cafe.webm',
     demo: 'https://namster-cafe.nibe.dev/',
-    code: 'https://github.com/nibeKn/Namster-Cafe',
+    code: 'https://github.com/nibedev/Namster-Cafe',
     tags: ['Vue 3', 'Cloudinary', 'CSS'],
     es: {
       category: 'IDENTIDAD & EXPERIENCIA WEB',
